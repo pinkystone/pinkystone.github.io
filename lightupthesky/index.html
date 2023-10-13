@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta data-hid="application-name" name="application-name" content="Lightup the Sky">
+    <meta data-hid="apple-mobile-web-app-title" name="apple-mobile-web-app-title" content="BLACKPINK - Lightup the Sky">
+    <meta data-hid="theme-color" name="theme-color" content="#FD9BC0">
+    <link rel="shortcut icon" type="image/jfif" href="icon.jfif">
+    <title>BLACKPINK - Lightup the sky</title>
+    <style>
+        body {
+            background: url(./bg.jpg);
+            background-size: 100%;
+        }
+        @media screen and (max-width: 900px) {
+            body {
+                background-image: none;
+                background: #212121;
+            }
+            audio {
+                display: none;
+            }
+            input {
+                display: none;
+            }
+            #timer {
+                display: none;
+            }
+            .dterror {
+                display: block !important;
+            }
+        }
+        @media screen and (max-width: 400px) {
+            body {
+                background: url(./bg.jpg);
+                background-size: 300%;
+                background-position: 49%;
+            }
+            audio {
+                display: block;
+                text-align: center;
+                margin-left: 2em;
+                margin-top: 160%;
+            }
+            input {
+                display: none;
+            }
+            #timer {
+                display: none;
+            }
+            .dterror {
+                display: none !important;
+            }
+        }
+        .audc {
+            text-align: center;
+            margin-top: 9em;
+        }
+        #timer {
+            width: 21.2rem;
+            height: 5rem;
+            /**
+            background: #FD9BC0;
+            color: #fff;
+            **/
+            margin-left: 13rem;
+            margin-top: 25.4rem;
+            text-align: center;
+            padding-top: 0.4rem;
+            font-size: 4rem;
+            font-family: sans-serif;
+            font-weight: bold;
+            border-radius: .3rem;
+        }
+        input {
+            width: 26rem;
+            height: 6.4rem;
+            background: #FD9BC0;
+            color: #fff;
+            text-align: center;
+            font-size: 4rem;
+            font-family: sans-serif;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.3rem;
+        }
+        .dterror {
+            display: none;
+            font-family: monospace;
+            color: #eee;
+            font-size: 1em;
+            margin-top: 40%;
+            margin-left: 10%;
+        }
+    </style>
+</head>
+<body>
+<div class="dterror">
+    <h1>This page is only supported on Desktop.</h1>
+</div>
+<div class="main">
+    <div class="audc">
+        <audio controls loop>
+            <source src="./You Never Know - BLACKPINK.mp3">
+        </audio>
+    </div>
+    <div id="timer">
+        <input id="tmd" type="text" readonly>
+    </div>
+</div>
+<script type="text/javascript">
+    function time() {
+        var t = new Date();
+        var hr = t.getHours();
+        var min = t.getMinutes();
+        var sec = t.getSeconds();
+        if (hr > 12) {
+            var hr = hr - 12;
+        }
+        if (hr < 10) {
+            hr = "0"+hr;
+        }
+        if (min < 10) {
+            min = "0"+min;
+        }
+        if (sec < 10) {
+            sec = "0"+sec;
+        }
+        const locate = document.getElementById("tmd");
+        locate.value = hr + ":" + min + ":" + sec;
+    }
+    setInterval(time, 500);
+</script>
+</body>
+</html>
